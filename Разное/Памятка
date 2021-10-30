@@ -245,3 +245,21 @@ alert_is_present
 
 описание условий тут https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.support.expected_conditions
 
+Тег iframe определяет встроенный фрейм; Он используется для встраивания другого документа в текущий HTML-документ.
+Прежде чем воздействовать на элементы внутри iframe, мы должны переключиться на него, используя
+
+driver.switch_to.frame(iframe reference)
+
+или
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, "локатор iframe")))
+
+дальше делаем свои дела в новом фрейме, и чтобы вернуться назад в старый:
+
+driver.switch_to.default_content()
+
+
