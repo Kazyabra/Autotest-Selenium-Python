@@ -14,17 +14,23 @@ def calc(x):
     return str(math.log(abs(12*math.sin(int(x)))))
 
 
-link = "http://suninjuly.github.io/explicit_wait2.html"
+link = "http://suninjuly.github.io/alert_accept.html"
 browser = webdriver.Chrome()
 try:
     # открываем сайт по ссылке
     browser.get(link)
 
-    # ищем цену дома
-    price = WebDriverWait(browser, 15).until(ec.text_to_be_present_in_element((By.ID, 'price'), '$100'))
     # жмем кнопку
     button = browser.find_element(By.CSS_SELECTOR, 'button')
     button.click()
+
+    # переключаемся на алерт
+    confirm = browser.switch_to.alert
+    # получаем текст алерта и печатаем его в консоль
+    otvet = confirm.text
+    print(f'Ответ: {otvet}')
+    # жмем кнопку ОК
+    confirm.accept()
 
     # Берем х и вычисляем ответ
     x_element = browser.find_element(By.ID, 'input_value').text
