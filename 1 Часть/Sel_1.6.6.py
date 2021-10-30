@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 
 try:
     # link = "http://suninjuly.github.io/registration1.html"
+    # С этой ссылкой должен спотыкаться на заполнении второго поля. Это правильно.
     link = "http://suninjuly.github.io/registration2.html"
     browser = webdriver.Chrome()
     browser.get(link)

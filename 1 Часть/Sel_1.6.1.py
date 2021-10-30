@@ -33,7 +33,7 @@ try:
         print(f'{number} поле: {values[number-1]}')
 
     # ищем кнопку submit
-    submit_button = browser.find_element(By.ID, "submit_button")
+    submit_button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     # нажимаем кнопку submit
     submit_button.click()
 finally:
